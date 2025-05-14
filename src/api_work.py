@@ -18,12 +18,14 @@ class Parser(ABC):
 
 class HeadHunterAPI(Parser):
     """Класс для работы с API HeadHunter'а"""
-    def __init__(self):
+    def __init__(self, file_worker):
         """Инициализация"""
         self.__url = 'https://api.hh.ru/vacancies'
         self.__headers = {'User-Agent': 'HH-User-Agent'}
         self.__params = {'text': '', 'page': 0, 'per_page': 100}
         self.__vacancies = []
+        self.file_worker = file_worker
+        super().__init__()
 
 
     def connect(self):
