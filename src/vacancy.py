@@ -4,15 +4,10 @@ from dataclasses import asdict, dataclass
 @dataclass
 class Vacancy:
     """Класс для предоставления вакансии"""
-    __slots__ = ["title", "url", "salary", "description"]
-
-
-    def __init__(self, title, url, salary, description):
-        """Инициализация вакансии"""
-        self.title = title
-        self.url = url
-        self.salary = salary
-        self.description = description
+    title: str
+    url: str
+    salary: int = 0
+    description: str = ""
 
 
     def to_dict(self):
@@ -27,8 +22,7 @@ class Vacancy:
 
 
     def comparison(self, other):
-        """Сранвнение зарплат у вакансий"""
+        """Сравнение зарплат у вакансий"""
         return self.salary < other.salary
-
 
 
