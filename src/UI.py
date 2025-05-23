@@ -104,4 +104,8 @@ def user_interaction():
 
     sorted_vacancies = sort_vacancies(ranged_vacancies)
     top_vacancies = get_top_vacancies(sorted_vacancies, top_n)
+
+    for vacancy in top_vacancies:
+        file_worker.add_vacancy(vacancy.to_dict())
+
     print_vacancies(top_vacancies)
